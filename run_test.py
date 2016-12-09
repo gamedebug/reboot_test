@@ -12,6 +12,7 @@ results_dir = current_dir+str(rec['results'])
 time_file = results_dir+str(rec['time_list'])
 boot_log = str(rec['boot_log'])
 nic_list = str(rec['nic_list'])
+test_report = str(rec['test_report'])
 test_script = current_dir+str(rec['test_script'])
 duration = str(float(rec['duration']))
 auto_exec = str(rec['auto_exec'])
@@ -38,4 +39,4 @@ else:
     tmp = open(auto_exec, 'r').readlines()
     del tmp[-1]
     open(auto_exec, 'w').writelines(tmp)
-    TestCase().test_report()
+    TestCase().test_report(results_dir, nic_list, test_report)

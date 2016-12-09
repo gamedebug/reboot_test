@@ -3,8 +3,8 @@
         "nic_list": "nic_list",
         "boot_log": "dmesg",
         "time_list": "timelist.log",
+        "test_report": "report",
         "test_script": "run_test.py",
         "auto_exec": "/etc/rc.local",
         "duration": "0.1"
 }
-
