@@ -59,19 +59,28 @@ class TestCase:
                 pass
 
         diff = []
+        cmp_list=[]
         for num in results_list:
+            cmp_list.append(filecmp.cmp(results_dir+'/0'+'/'+\
+                            nic_list, results_dir+'/'+num+'/'+nic_list))
             if filecmp.cmp(results_list+'/0'+'/'nic_list,\
                            results_list+'/'+num+'/'nic_list):
-                result = 'Passed'
+                pass
             else:
-                result = 'Failed'
                 diff.append(num)
-
+                
+        if False in cmp_list:
+            result = 'Failed'
+        else:
+            result = 'Passed'
+            
         if os.path.exists(results_dir+'/'+report):
             os.system('rm -fr '+results_dir+'/'+report)
         else:
             pass
+        
+        os.system('touch '+results_dir+'/'+report)
+        open(results_dir+'/'+report, 'a').write('Test result: '+result+'\n')
+        open(results_dir+'/'+report, 'a').write('Reboot times: '+str(counter)+'\n')
+        open(results_dir+'/'+report, 'a').write('Issue list: '+str(diff)+'\n')
 
-        os.system('echo Testing result: '+result+'>'+results_dir+'/'+report)
-        os.system('echo Reboot times: '+counter+'>>'+results_dir+'/'+report)
-        os.system('echo Issues: '+diff+'>>'+results_dir+'/'+report)
