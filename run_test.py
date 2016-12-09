@@ -16,6 +16,7 @@ nic_list = str(rec['nic_list'])
 test_report = str(rec['test_report'])
 test_script = current_dir+'/'+str(rec['test_script'])
 duration = str(float(rec['duration']))
+
 if platform.dist()[0] == 'redhat':
     auto_exec = str(rec['rh_auto_exec'])
 elif platform.dist()[0] == 'SuSE':
