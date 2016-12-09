@@ -49,4 +49,4 @@ else:
     tmp = open(auto_exec, 'r').readlines()
     del tmp[-1]
     open(auto_exec, 'w').writelines(tmp)
-    TestCase().test_report(results_dir, nic_list, test_report)
+    TestCase().test_report(results_dir, time_file, nic_list, test_report)
