@@ -47,7 +47,7 @@ class TestCase:
                           str(info_folder)+'/'+nic_list)
                 break
 
-    def test_report(self, results_dir, nic_list, report):
+    def test_report(self, results_dir, time_file, nic_list, report):
 
         counter = int(os.popen('cat '+time_file+'| wc -l').read())
 
