@@ -8,12 +8,12 @@ import json
 
 current_dir = sys.path[0]
 rec = json.load(open(current_dir+'/etc/config.json'))
-results_dir = current_dir+str(rec['results'])
-time_file = results_dir+str(rec['time_list'])
+results_dir = current_dir+'/'+str(rec['results'])
+time_file = results_dir+'/'+str(rec['time_list'])
 boot_log = str(rec['boot_log'])
 nic_list = str(rec['nic_list'])
 test_report = str(rec['test_report'])
-test_script = current_dir+str(rec['test_script'])
+test_script = current_dir+'/'+str(rec['test_script'])
 duration = str(float(rec['duration']))
 auto_exec = str(rec['auto_exec'])
 
