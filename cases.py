@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*- 
+# -*- coding: utf-8 -*-
 
 import os
 import time
@@ -65,8 +65,8 @@ class TestCase:
         for num in results_list:
             cmp_list.append(filecmp.cmp(results_dir+'/0'+'/'+\
                             nic_list, results_dir+'/'+num+'/'+nic_list))
-            if filecmp.cmp(results_list+'/0'+'/'+nic_list,\
-                           results_list+'/'+num+'/'+nic_list):
+            if filecmp.cmp(results_dir+'/0'+'/'+nic_list,\
+                           results_dir+'/'+num+'/'+nic_list):
                 pass
             else:
                 issue.append(num)
