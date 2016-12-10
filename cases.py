@@ -4,10 +4,22 @@ import os
 import time
 import filecmp
 
-
 class TestCase:
 
+    ‘’’
+        主测试类，包含以下拆分之后的测试类方法：
+        1. 定时器；
+        2. 测试记录目录及文件初始化；
+        3. 测试时间记录；
+        4. 测试结果记录；
+        5. 测试报告生成。
+    ‘’’
+
     def timer(self, time_file, duration):
+
+         ‘’‘
+             定时器：返回是否达到测试时间的布尔值。
+         ‘’’
 
         time_list = []
         test_duration = float(duration)
@@ -18,6 +30,10 @@ class TestCase:
         return float(time_list[-1])-float(time_list[0]) < test_duration*3600
 
     def test_init(self, results_dir, time_file):
+
+        ‘’’
+            构建测试记录保存的目录结构及相关文件。
+        ‘’’
 
         if os.path.exists(results_dir):
             pass
@@ -31,10 +47,20 @@ class TestCase:
 
     def time_record(self, time_file):
 
+        ‘’’
+            记录每次重启的时间。
+        ‘’’
+
         open(time_file, 'a').\
             writelines(str(float(time.time()))+'\n')
 
     def test_record(self, results_dir, boot_log, nic_list):
+
+        ‘’’
+            每次重启完成时记录以下相关系统日志，用于判断测试结果，并提供调试依据：
+            1. 操作系统启动日志；
+            2. 网卡设备列表。
+        ‘’’
 
         info_folder = 0
 
@@ -50,6 +76,13 @@ class TestCase:
                 break
 
     def test_report(self, results_dir, time_file, nic_list, report):
+
+        ‘’’
+            测试结束后生成整体测试数据报告：
+            1. 测试结果；
+            2. 重启次数；
+            3. 问题点提示。
+        ‘’’
 
         counter = int(os.popen('cat '+time_file+'| wc -l').read())
 
