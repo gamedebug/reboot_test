@@ -18,7 +18,7 @@ class TestCase:
     def timer(self, time_file, duration):
 
          ‘’‘
-             定时器：返回是否达到测试时间的布尔值。
+             定时器：返回用于描述是否达到测试时间的布尔值用于。
          ‘’’
 
         time_list = []
@@ -32,7 +32,7 @@ class TestCase:
     def test_init(self, results_dir, time_file):
 
         ‘’’
-            构建测试记录保存的目录结构及相关文件。
+            建立测试记录保存的目录结构及相关文件。
         ‘’’
 
         if os.path.exists(results_dir):
@@ -48,7 +48,7 @@ class TestCase:
     def time_record(self, time_file):
 
         ‘’’
-            记录每次重启的时间。
+            记录每次重启完成的时间。
         ‘’’
 
         open(time_file, 'a').\
