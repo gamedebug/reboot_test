@@ -46,12 +46,12 @@ else:
 if TestCase().timer(time_file, duration):
     TestCase().time_record(time_file)
     TestCase().test_record(results_dir, boot_log, nic_list)
-    time.sleep(30)
     if test_script in open(auto_exec, 'r').read():
         pass
     else:
         os.system('echo '+test_script+' >> '+ auto_exec )
         os.system('chmod +x '+ auto_exec)
+    time.sleep(180)
     os.system('reboot')
 else:
     tmp = open(auto_exec, 'r').readlines()
